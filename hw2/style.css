@@ -101,5 +101,5 @@ button {
 #compare-plans-button {
     background-color: rgb(213, 233, 233);
     color: rgb(35, 77, 0);
-    margin-top: 40px;
+    margin-block: 40px;
 }

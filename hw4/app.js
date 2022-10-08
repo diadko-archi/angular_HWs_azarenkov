@@ -1,12 +1,11 @@
-const cells = document.getElementsByTagName("div");
+const cells = [...document.getElementsByClassName("cell")];
 let turn = 0;
 
-for(let i = 0; i < 9; i++){
-    cells[i].onclick = function() {
-        let color = turn%2 == 0 ? "blue" : "yellow";
-        if (cells[i].className != "blue" && cells[i].className != "yellow"){
-            cells[i].classList.toggle(color)
-            turn = ++turn;
+cells.forEach(cell => {
+    cell.onclick = function() {
+        if (!cell.style.backgroundColor) {
+            cell.style.backgroundColor = turn++ % 2 ==1 ? "yellow" : "blue";
         }
     }
-}
+})
+    

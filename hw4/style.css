@@ -5,21 +5,9 @@ body {
     height: 340px;
 }
 
-div {
+.cell {
     width: 100px;
     height: 100px;
     border: 1px solid black;
     margin: 5px;
-}
-
-.uncolored {
-    background-color: white;
-}
-
-.blue {
-    background-color: blue;
-}
-
-.yellow {
-    background-color: yellow;
 }

@@ -1,1 +1,9 @@
-
+<div class="beer-card" *ngFor="let beer of beers | async">
+  <h1 class="name">{{beer.name}}</h1>
+  <h3 class="tagline">{{beer.tagline}}</h3>
+  <img class="image" src="{{beer.image_url}}" alt="{{beer.name}} image">
+  <div class="description">{{beer.description}}</div>
+  <div class="volume"><i>Volume: {{beer.volume.value}} {{beer.volume.unit}}</i></div>
+  <div class="first_brewed"><i>First brewed: {{beer.first_brewed}}</i></div>
+  <div class="food_pairing"><i>Food pairing: {{beer.food_pairing}}</i></div>
+</div>

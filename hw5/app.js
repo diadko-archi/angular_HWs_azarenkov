@@ -50,7 +50,6 @@ var getBeers = function () { return __awaiter(_this, void 0, void 0, function ()
                 return [4 /*yield*/, response.json()];
             case 2:
                 json = _a.sent();
-                console.log(json);
                 return [2 /*return*/, json];
         }
     });
@@ -58,7 +57,6 @@ var getBeers = function () { return __awaiter(_this, void 0, void 0, function ()
 getBeers().then(function (beers) {
     for (var _i = 0, _a = __spreadArray([], beers); _i < _a.length; _i++) {
         var beer = _a[_i];
-        console.log(beer.name, typeof beer.name);
         document.body.innerHTML += "\n        <div class=\"beer-card\">\n            <h1 class=\"name\">" + beer.name + "</h1>\n            <h3 class=\"tagline\">" + beer.tagline + "</h3>\n            <img class=\"image\" src=\"" + beer.image_url + "\" alt=\"" + beer.name + " image\">\n            <div class=\"description\">" + beer.description + "</div>\n            <div class=\"first_brewed\">First brewed: " + beer.first_brewed + "</div>\n        </div>\n        ";
     }
 });

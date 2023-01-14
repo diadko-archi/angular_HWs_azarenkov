@@ -1,0 +1,16 @@
+<div class="flex-container" *ngIf="details; else_loading">
+  <div class="text-container">
+    <h1> {{details.name}} </h1>
+    <h3> {{details.tagline}} </h3>
+    <p><i> First brewed: {{details.first_brewed}} </i></p>
+    <p> {{details.description}} </p>
+    <p> Food pairing: {{details.food_pairing}} </p>
+    <p> Volume: {{details.volume.value}} {{details.volume.unit}} </p>
+    <div class="buy-button">Buy for: {{details.ibu}} $</div>
+  </div>
+  <img class="image" src="{{details.image_url}}">
+</div>
+
+<ng-template #loading>
+  Loading...
+</ng-template>

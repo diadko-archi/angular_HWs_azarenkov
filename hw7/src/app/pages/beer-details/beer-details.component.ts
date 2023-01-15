@@ -19,8 +19,11 @@ export class BeerDetailsComponent {
 
   ngOnInit(): void {
     this.id = this.router.snapshot.params['id'];
-
     this.beerService.getBeerById(this.id).subscribe(details => this.details = details[0]);
+  }
+
+  addToBasket() {
+    this.beerService.addToBasket()
   }
 
 }

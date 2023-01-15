@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="flex-container" *ngIf="details; else_loading">
   <div class="text-container">
     <h1> {{details.name}} </h1>
@@ -6,7 +7,7 @@
     <p> {{details.description}} </p>
     <p> Food pairing: {{details.food_pairing}} </p>
     <p> Volume: {{details.volume.value}} {{details.volume.unit}} </p>
-    <div class="buy-button">Buy for: {{details.ibu}} $</div>
+    <button (click)="addToBasket()" class="buy-button">Buy for: {{details.ibu}} $</button>
   </div>
   <img class="image" src="{{details.image_url}}">
 </div>

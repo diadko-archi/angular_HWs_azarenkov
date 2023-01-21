@@ -1,0 +1,4 @@
+<div class="beer-card" *ngFor="let beer of beers" routerLink="{{beer.id}}">
+  <h3>{{ beer.name }}</h3>
+  <img class="image" src="{{beer.image_url}}">
+</div>

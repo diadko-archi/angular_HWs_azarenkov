@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { BeerService } from 'src/app/services/beer.service';
 
-
 @Component({
-  selector: 'app-beers-catalog',
-  templateUrl: './beers-catalog.component.html',
-  styleUrls: ['./beers-catalog.component.scss']
+  selector: 'app-beer-card',
+  templateUrl: './beer-card.component.html',
+  styleUrls: ['./beer-card.component.scss']
 })
-export class BeersCatalogComponent {
+export class BeerCardComponent {
 
   constructor(
     private beerService: BeerService
@@ -18,5 +17,4 @@ export class BeersCatalogComponent {
   ngOnInit(): void {
     this.beerService.getBeers().subscribe(beers => this.beers = beers);
   }
-
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +9,11 @@ import { Observable } from 'rxjs/internal/Observable';
 export class BeerService {
 
   readonly rootUrl = 'https://api.punkapi.com/v2/';
-  basketCount!: number;
+  cartAmount$ = new BehaviorSubject<number>(+(localStorage.getItem('cartAmount') || 0))
 
   constructor(
     private http: HttpClient
-  ) {
-    this.basketCount = 0;
-  }
+  ) {}
 
   getBeers(): Observable<any[]> {
     return this.http.get<any[]>(this.rootUrl + 'beers');
@@ -24,12 +23,13 @@ export class BeerService {
     return this.http.get<any>(this.rootUrl + 'beers/' + id)
   }
 
-  addToBasket() {
-    this.basketCount += 1;
+  addToCart() {
+    const currentAmount = this.cartAmount$.value;
+    this.cartAmount$.next(currentAmount + 1);
   }
 
-  getBasketCount() {
-    return this.basketCount;
-  }
+  // getCartAmount() {
+  //   return this.cartAmount$.next();
+  // }
 
 }

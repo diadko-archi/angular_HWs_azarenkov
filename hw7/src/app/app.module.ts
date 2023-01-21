@@ -7,12 +7,15 @@ import { AppComponent } from './app.component';
 import { BeersCatalogComponent } from './pages/beers-catalog/beers-catalog.component';
 import { BeerDetailsComponent } from './pages/beer-details/beer-details.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './components/header/header.component';
+import { BeerCardComponent } from './components/beer-card/beer-card.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'catalog' },
   { path: 'catalog', component: BeersCatalogComponent },
   { path: 'catalog/:id', component: BeerDetailsComponent },
+  { path: 'cart', component: CartComponent },
   { path: '**', component: NotFoundComponent }
 ]
 
@@ -22,7 +25,9 @@ const routes: Routes = [
     BeersCatalogComponent,
     BeerDetailsComponent,
     NotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    BeerCardComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@
     <p> {{details.description}} </p>
     <p> Food pairing: {{details.food_pairing}} </p>
     <p> Volume: {{details.volume.value}} {{details.volume.unit}} </p>
-    <button (click)="addToBasket()" class="buy-button">Buy for: {{details.ibu}} $</button>
+    <button (click)="addToCart()" class="buy-button">Buy for: {{details.ibu}} $</button>
   </div>
   <img class="image" src="{{details.image_url}}">
 </div>

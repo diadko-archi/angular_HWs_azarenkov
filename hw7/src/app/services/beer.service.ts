@@ -9,11 +9,13 @@ import { BehaviorSubject } from 'rxjs';
 export class BeerService {
 
   readonly rootUrl = 'https://api.punkapi.com/v2/';
-  cartAmount$ = new BehaviorSubject<number>(+(localStorage.getItem('cartAmount') || 0))
+  // cartAmount$ = new BehaviorSubject<number>(0);
+  cartBeers$ = new BehaviorSubject<string[]>([]);
 
   constructor(
     private http: HttpClient
-  ) {}
+  ) {
+  }
 
   getBeers(): Observable<any[]> {
     return this.http.get<any[]>(this.rootUrl + 'beers');
@@ -23,13 +25,19 @@ export class BeerService {
     return this.http.get<any>(this.rootUrl + 'beers/' + id)
   }
 
-  addToCart() {
-    const currentAmount = this.cartAmount$.value;
-    this.cartAmount$.next(currentAmount + 1);
+  addToCart(beerName: string) {
+    // const currentAmount = this.cartAmount$.value;
+    // this.cartAmount$.next(currentAmount + 1);
+    this.cartBeers$.value.push(beerName);
   }
 
-  // getCartAmount() {
-  //   return this.cartAmount$.next();
-  // }
+  getCartBeers(){
+    return this.cartBeers$;
+  }
+
+  removeFromCart(beer: string) {
+    this.cartBeers$.value.splice(this.cartBeers$.value.indexOf(beer), 1);
+  }
+
 
 }

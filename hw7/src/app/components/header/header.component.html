@@ -1,4 +1,4 @@
 <div class="header">
   <h1 class="total-beers"> Total beers in our store: {{beers.length}}</h1>
-  <button class="cart-amount" (click)="goToCart();"> Cart amount: {{cartAmount$ | async}}</button>
+  <button class="cart-amount" (click)="goToCart();"> Cart amount: {{cartBeers$.value.length}}</button>
 </div>

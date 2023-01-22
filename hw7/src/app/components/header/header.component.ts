@@ -10,7 +10,7 @@ import { BeerService } from '../../services/beer.service';
 })
 export class HeaderComponent {
 
-  cartAmount$ = this.beerService.cartAmount$;
+  cartBeers$ = this.beerService.cartBeers$;
   beers: any[] = [];
 
   constructor(

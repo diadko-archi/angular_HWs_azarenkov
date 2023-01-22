@@ -22,8 +22,8 @@ export class BeerDetailsComponent {
     this.beerService.getBeerById(this.id).subscribe(details => this.details = details[0]);
   }
 
-  addToCart() {
-    this.beerService.addToCart()
+  addToCart(beerName: string) {
+    this.beerService.addToCart(beerName);
   }
 
 }

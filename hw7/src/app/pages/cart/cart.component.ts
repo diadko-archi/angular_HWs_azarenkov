@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BeerService } from 'src/app/services/beer.service';
+import { BeerService } from 'app/services/beer.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,13 +8,13 @@ import { BeerService } from 'src/app/services/beer.service';
 })
 export class CartComponent {
 
+  cartBeers$ = this.beerService.getCartBeers();
+
   constructor(
     private beerService: BeerService
   ) {
-    console.log(this.cartBeers$.value?.length)
+    console.log(this.cartBeers$?.length)
   }
-
-  cartBeers$ = this.beerService.getCartBeers();
 
   removeFromCart(beer: string) {
     this.beerService.removeFromCart(beer);

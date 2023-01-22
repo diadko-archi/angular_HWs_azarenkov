@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { BehaviorSubject } from 'rxjs';
+// import { BehaviorSubject } from 'rxjs';
+import { ObservableArray, ChangedData } from "tns-core-modules/data/observable-array";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class BeerService {
 
   readonly rootUrl = 'https://api.punkapi.com/v2/';
   // cartAmount$ = new BehaviorSubject<number>(0);
-  cartBeers$ = new BehaviorSubject<string[]>([]);
+  cartBeers$ = new ObservableArray<string>();
 
   constructor(
     private http: HttpClient
@@ -28,7 +29,7 @@ export class BeerService {
   addToCart(beerName: string) {
     // const currentAmount = this.cartAmount$.value;
     // this.cartAmount$.next(currentAmount + 1);
-    this.cartBeers$.value.push(beerName);
+    this.cartBeers$.push(beerName);
   }
 
   getCartBeers(){
@@ -36,7 +37,7 @@ export class BeerService {
   }
 
   removeFromCart(beer: string) {
-    this.cartBeers$.value.splice(this.cartBeers$.value.indexOf(beer), 1);
+    this.cartBeers$.splice(this.cartBeers$.indexOf(beer), 1);
   }
 
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BeerService } from 'src/app/services/beer.service';
+import { BeerService } from 'app/services/beer.service';
 
 @Component({
   selector: 'app-beer-card',

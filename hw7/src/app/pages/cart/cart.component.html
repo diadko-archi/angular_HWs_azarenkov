@@ -1,7 +1,7 @@
 <app-header></app-header>
 <button class="back-to-catalog" routerLink="../catalog">Back to catalog</button>
-<div class="cart-container" *ngIf="cartBeers$.value?.length; else empty">
-  <div class="beer-cart" *ngFor="let beer of cartBeers$ | async">
+<div class="cart-container" *ngIf="cartBeers$?.length; else empty">
+  <div class="beer-cart" *ngFor="let beer in cartBeers$ | async">
     <h3>{{ beer }}</h3>
     <button class="remove-button" (click)="removeFromCart(beer)">remove</button>
   </div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BeerService } from 'src/app/services/beer.service';
+import { BeerService } from 'app/services/beer.service';
 
 @Component({
   selector: 'app-beer-details',

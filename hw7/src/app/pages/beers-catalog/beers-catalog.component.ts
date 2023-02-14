@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { BeerService } from 'app/services/beer.service';
 
 
@@ -9,6 +9,8 @@ import { BeerService } from 'app/services/beer.service';
 })
 export class BeersCatalogComponent {
 
+  @ViewChild("test-image") placeImage!: HTMLElement;
+
   constructor(
     private beerService: BeerService
   ) {}
@@ -18,5 +20,13 @@ export class BeersCatalogComponent {
   ngOnInit(): void {
     this.beerService.getBeers().subscribe(beers => this.beers = beers);
   }
+
+  ngAfterViewInit() {
+    console.log(this.placeImage)
+
+    this.placeImage.onclick = () => {
+      console.log(this.placeImage)
+    };
+}
 
 }
